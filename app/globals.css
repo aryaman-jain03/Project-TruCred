@@ -1,0 +1,218 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 248 250 252;
+    --foreground: 15 23 42;
+    --card: 255 255 255;
+    --card-foreground: 15 23 42;
+    --popover: 255 255 255;
+    --popover-foreground: 15 23 42;
+    --primary: 59 130 246;
+    --primary-foreground: 255 255 255;
+    --secondary: 241 245 249;
+    --secondary-foreground: 15 23 42;
+    --muted: 241 245 249;
+    --muted-foreground: 100 116 139;
+    --accent: 241 245 249;
+    --accent-foreground: 15 23 42;
+    --destructive: 239 68 68;
+    --destructive-foreground: 255 255 255;
+    --border: 226 232 240;
+    --input: 226 232 240;
+    --ring: 59 130 246;
+    --radius: 0.75rem;
+
+    /* Fintech Professional Palette */
+    --fintech-primary: 59 130 246; /* Blue 500 */
+    --fintech-secondary: 16 185 129; /* Emerald 500 */
+    --fintech-accent: 139 92 246; /* Violet 500 */
+    --fintech-warning: 59 130 246; /* Blue instead of yellow */
+    --fintech-success: 34 197 94; /* Green 500 */
+    --fintech-error: 239 68 68; /* Red 500 */
+    --fintech-neutral: 71 85 105; /* Slate 600 */
+
+    /* Glass morphism variables */
+    --glass-bg: rgba(255, 255, 255, 0.25);
+    --glass-border: rgba(255, 255, 255, 0.18);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  }
+
+  .dark {
+    --background: 15 23 42;
+    --foreground: 248 250 252;
+    --card: 30 41 59;
+    --card-foreground: 248 250 252;
+    --popover: 30 41 59;
+    --popover-foreground: 248 250 252;
+    --primary: 59 130 246;
+    --primary-foreground: 255 255 255;
+    --secondary: 30 41 59;
+    --secondary-foreground: 248 250 252;
+    --muted: 30 41 59;
+    --muted-foreground: 148 163 184;
+    --accent: 30 41 59;
+    --accent-foreground: 248 250 252;
+    --destructive: 239 68 68;
+    --destructive-foreground: 255 255 255;
+    --border: 51 65 85;
+    --input: 51 65 85;
+    --ring: 59 130 246;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  /* EXPLICIT BACKGROUND FIX - This should solve the yellow background issue */
+  html {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+  }
+
+  body {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    color: rgb(15 23 42);
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Ensure no yellow backgrounds anywhere */
+  #__next {
+    background-color: #ffffff !important;
+  }
+
+  /* Override any potential Tailwind defaults */
+  .bg-background {
+    background-color: #ffffff !important;
+  }
+}
+
+/* Glassmorphism utilities */
+@layer utilities {
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+  }
+
+  .glass-button {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .glass-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.3);
+  }
+
+  .neumorphism {
+    background: #f0f4f8;
+    box-shadow: 20px 20px 60px #d1d9e6, -20px -20px 60px #ffffff;
+  }
+
+  .neumorphism-inset {
+    background: #f0f4f8;
+    box-shadow: inset 20px 20px 60px #d1d9e6, inset -20px -20px 60px #ffffff;
+  }
+
+  .gradient-fintech {
+    background: linear-gradient(135deg, rgb(59 130 246) 0%, rgb(16 185 129) 100%);
+  }
+
+  .gradient-fintech-secondary {
+    background: linear-gradient(135deg, rgb(139 92 246) 0%, rgb(59 130 246) 100%);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, rgb(59 130 246) 0%, rgb(16 185 129) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Clean white to light gray gradient */
+  .bg-neutral-gradient {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%) !important;
+  }
+
+  /* Alternative clean background */
+  .bg-clean-white {
+    background: #ffffff !important;
+  }
+}
+
+/* Custom scrollbar with explicit blue-green colors */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(226, 232, 240, 0.5) !important;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, rgb(59 130 246) 0%, rgb(16 185 129) 100%) !important;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, rgb(37 99 235) 0%, rgb(5 150 105) 100%) !important;
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(59 130 246) rgba(226, 232, 240, 0.5) !important;
+}
+
+/* Force button colors to override any background interference */
+.btn-outline-explicit {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgb(226 232 240) !important;
+  color: rgb(15 23 42) !important;
+}
+
+.btn-outline-explicit:hover {
+  background-color: rgb(241 245 249) !important;
+  color: rgb(15 23 42) !important;
+}
+
+/* Prevent any yellow backgrounds during over-scroll */
+html,
+body,
+#__next,
+#root {
+  background-color: #ffffff !important;
+  overscroll-behavior: none;
+}
+
+/* iOS Safari over-scroll fix */
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Prevent elastic scroll on mobile */
+html {
+  overscroll-behavior-y: none;
+}

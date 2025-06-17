@@ -58,7 +58,7 @@ const testimonials = [
     rating: 5,
   },
 ]
-
+//
 export default function LandingPage() {
   const [hoveredFeature, setHoveredFeature] = useState<number | null>(null)
 
@@ -412,7 +412,7 @@ export default function LandingPage() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/status" className="hover:text-blue-600 transition-colors">
+                  <Link href="/status" className="hover:text-blue-600 transition-colors"> 
                     Status
                   </Link>
                 </li>

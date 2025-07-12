@@ -420,7 +420,7 @@ export default function LandingPage() {
             </div>
           </div>
           <div className="border-t border-white/20 mt-8 pt-8 text-center text-slate-600">
-            <p>&copy; 2025 TruCred. Created by Aryaman Jain & Imroz Saim Kamboj (Team CrediAct). All rights reserved.</p>
+            <p>&copy; 2025 TruCred. Created by Aryaman Jain. All rights reserved.</p>
           </div>
         </div>
       </footer>
